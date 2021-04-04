@@ -7,3 +7,4 @@ export GOPRIVATE=git.mycompany.com,github.com/my/private
 ```
 # REF
 [GO 代理](https://goproxy.io/zh/docs/getting-started.html)
+[.gitignore](https://www.jianshu.com/p/1c74f84e56b4)
