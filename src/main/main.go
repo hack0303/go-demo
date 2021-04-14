@@ -29,6 +29,12 @@ func swapMulti(p0, p1 string) (string, string) {
 	return p1, p0
 }
 
+func swapMulti2(p0, p1 string) (x, y string) {
+	x = p1
+	y = p0
+	return
+}
+
 //https://tour.golang.org/welcome/4
 func main() {
 	fmt.Println("hello world!")
@@ -42,4 +48,5 @@ func main() {
 	fmt.Println("短路", add3(1, 2, 3))
 	a, b := swapMulti("hello", "world")
 	fmt.Println("多结果", a, b)
+	fmt.Println("多结果，命名返回", a, b)
 }
