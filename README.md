@@ -41,3 +41,11 @@ Run the code. Notice the error message.
 
 To fix the error, rename math.pi to math.Pi and try it again.
 ```
+# point 3 defer
+[defer](https://tour.golang.org/flowcontrol/12)
+```
+Defer
+A defer statement defers the execution of a function until the surrounding function returns.
+
+The deferred call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
+```
