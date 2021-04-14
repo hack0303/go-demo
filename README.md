@@ -49,3 +49,5 @@ A defer statement defers the execution of a function until the surrounding funct
 
 The deferred call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
 ```
+# point 4 final tour
+[final tour](https://tour.golang.org/methods/1)
