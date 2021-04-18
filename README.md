@@ -51,3 +51,7 @@ The deferred call's arguments are evaluated immediately, but the function call i
 ```
 # point 4 final tour
 [final tour](https://tour.golang.org/methods/1)
+
+# go web
+[go web ref](https://www.zhihu.com/question/27370112)
+[http go](https://mp.weixin.qq.com/s?__biz=MzUzNTY5MzU2MA==&mid=2247484112&idx=1&sn=79d0d3167d0d962fe41ec00cdafffbb0&chksm=fa80d347cdf75a51183182f14622af766538ca0c5335012e5e1cc50b100e78f2954fa3943770&scene=21#wechat_redirect)
