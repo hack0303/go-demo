@@ -1,4 +1,4 @@
-package main
+package coroutine
 
 import (
 	"fmt"
