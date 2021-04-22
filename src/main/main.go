@@ -55,6 +55,13 @@ func testFuncParam(x, y int, f func(int, int) int) (v int) {
 	return
 }
 
+func returnFunc() func(int) int {
+	origin := 10
+	return func(x int) int {
+		return origin + x
+	}
+}
+
 //https://tour.golang.org/welcome/4
 func main() {
 	fmt.Println("hello world!")
@@ -246,11 +253,16 @@ func main() {
 	fmt.Println("fmt.Println(aMap2[\"b\"])", aMap2["b"])
 	elem, ok := aMap2["b"]
 	fmt.Println("fmt.Println(aMap2[\"b\"])", ok, elem)
-
+	//H
 	tfunc := func(x int, y int) int {
 		return x + y
 	}
 	fmt.Println("testFuncParam(1,2,tfunc)", testFuncParam(1, 2, tfunc))
+
+	fmt.Println("returnFunc", returnFunc()(20))
+
+	//error
+	//https://tour.golang.org/methods/19
 }
 
 func printSlice(s []int) {
