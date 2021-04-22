@@ -39,6 +39,22 @@ func swapMulti2(p0, p1 string) (x, y string) {
 //https://tour.golang.org/basics/8
 var c, python, java bool
 
+type Vertex struct {
+	x int
+	y int
+}
+
+func printArray(ary []int) {
+	for i := 0; i < len(ary); i++ {
+		fmt.Println(ary[i])
+	}
+}
+
+func testFuncParam(x, y int, f func(int, int) int) (v int) {
+	v = f(x, y)
+	return
+}
+
 //https://tour.golang.org/welcome/4
 func main() {
 	fmt.Println("hello world!")
@@ -132,4 +148,111 @@ func main() {
 	for x := 0; x < 10; x++ {
 		defer fmt.Println(x)
 	}
+
+	//point
+	//https://tour.golang.org/moretypes/1
+	t01, t02 := 1024, 2048
+	p := &t01
+	*p = *p + t02
+	*p = *p / 3
+	fmt.Println("*p is ", *p)
+
+	fmt.Println(Vertex{1, 2})
+
+	vertex1 := Vertex{2, 4}
+	fmt.Println(vertex1.x)
+
+	//参考c，
+	vertex2 := Vertex{}
+	vertex3 := Vertex{x: 10}
+	fmt.Println(vertex2.x)
+	fmt.Println(vertex3.x)
+	vertex3_ptr := &vertex3
+	fmt.Println(vertex3_ptr.x)
+
+	var array1 [10]int
+	for i := 0; i < len(array1); i++ {
+		fmt.Println(array1[i])
+	}
+
+	fmt.Println(array1)
+	array2 := []int{1, 2, 3, 4, 5}
+	fmt.Println(array2)
+	var array3 []int = array2[0:1]
+	fmt.Println(array3)
+
+	fmt.Println([]int{1, 2, 3, 4})
+	fmt.Println([]bool{true, false, true, false})
+	fmt.Println([]struct {
+		x int
+		y string
+	}{{1, "y1"}, {2, "y2"}})
+
+	fmt.Println(array2[:], array2[1:], array2[:1], array2[1:4])
+
+	s := []int{2, 3, 5, 7, 11, 13}
+	printSlice(s)
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s)
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s)
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s)
+
+	var s0 []int
+	fmt.Println(s0, len(s0), cap(s0))
+	if s0 == nil {
+		fmt.Println("nil!")
+	}
+
+	pow := make([]int, 10)
+	for i := 0; i < len(pow); i++ {
+		pow[i] = i
+	}
+	//or
+	for i := range pow {
+		pow[i] = i
+	}
+
+	for _, value := range pow {
+		fmt.Println(value)
+	}
+
+	//map
+	aMap := make(map[string]Vertex)
+
+	aMap["heihei"] = Vertex{1, 2}
+	fmt.Println(aMap["heihei"])
+
+	//注意每个k,v(ˇ?ˇ) 项后面的 逗号
+	var aMap1 = map[string]Vertex{
+		"a": {1, 2},
+	}
+	for _, value := range aMap1 {
+		fmt.Println(value.x, value.y)
+	}
+
+	aMap2 := make(map[string]int)
+	aMap2["a"] = 2
+	aMap2["b"] = 3
+	fmt.Println("fmt.Println(aMap2[\"b\"])", aMap2["b"])
+	delete(aMap2, "b")
+	fmt.Println("fmt.Println(aMap2[\"b\"])", aMap2["b"])
+	elem, ok := aMap2["b"]
+	fmt.Println("fmt.Println(aMap2[\"b\"])", ok, elem)
+
+	tfunc := func(x int, y int) int {
+		return x + y
+	}
+	fmt.Println("testFuncParam(1,2,tfunc)", testFuncParam(1, 2, tfunc))
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
